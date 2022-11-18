@@ -1,1 +1,9 @@
 # Simulink_Models
+
+By-wire hydraulic steering control system
+
+This control arcitecture is designed for a vehicle which uses a double ended double acting hydraulic cylinder connected via tie rods to the front wheels to change the heading direction of an ackerman steering system. A CAN controlled steering servo valve is assumed to control fluid flow into the cylider, but has a deadband in its response around zero. The onroard hydraulic pumps and accumulators are assumed to provide sufficient flow at roughly constant pressure to the steering valve. A position sensor wired into the steering valve electronics provides steering angle feedback, which is then braodcast over the CAN bus by the value. 
+
+The vehicle steering wheel connects to a magnetorheological variable force feedback steering wheel angle sensor. This device transmits the current steering wheel absolute angle and can be commanded to provide a variable level of feedback torque in either the clockwise or counter- clockwise direction. The device is a variable damper, and therefore can not actively rotate the steering wheel. No direct mechanical or hydraulic connection exists between the steering wheel and the road wheels. In order to keep user interaction consistent, the road wheel and steering wheel angles should align within some error band when manually operated.
+
+Steering angle commands can come from either the autonomy computer or the human operated steering wheel. The vehicle level controller continuously receives commands from both sources via CAN. An additional bit from the autonomy computer indicated when control should be via autonomy versus by the operator. To maintain vehicle stability and safety, abrupt changes in road wheel steering angle are not allowed by the control code (particularly on transitions between autonomy and manual control modes).
