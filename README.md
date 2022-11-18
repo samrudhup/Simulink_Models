@@ -2,4 +2,4 @@
 
 DC Car Model
 
-This control architecture implements a praportional gain feed back contorl and a slip controller to track a ramp signal with minimal slip. 
+This control architecture implements a praportional gain feedback speed controller and a slip controller to track a ramp signal with minimal slip. 
